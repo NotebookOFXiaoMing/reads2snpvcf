@@ -1,0 +1,7 @@
+raw_fq:
+  r1: "00.raw.fq/{sample}_1.fastq.gz"
+  r2: "00.raw.fq/{sample}_2.fastq.gz"
+
+ref:
+  fa: "ref/Ecoli.fa"
+  index: "ref/Ecoli.fa"
