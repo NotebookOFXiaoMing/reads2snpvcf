@@ -27,6 +27,12 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/
 
 SRR10001272 SRR10002237 SRR10005830
 
+首先给参考基因组构建索引
+
+```
+bwa index ref/Ecoli.fa
+```
+
 运行脚本
 
 ```
