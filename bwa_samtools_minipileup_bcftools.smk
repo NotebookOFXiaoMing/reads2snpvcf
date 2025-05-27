@@ -25,8 +25,8 @@ rule fastp:
     params:
         #"-f 10 -t 10 -F 10 -T 10"
         job_name = "{sample}_fastp"
-    benchmark:
-        "00.benchmarks/{sample}.fastp.benchmark.txt"
+    #benchmark:
+        #"00.benchmarks/{sample}.fastp.benchmark.txt"
     shell:
         """
         fastp -i {input.r1} -I {input.r2} \
@@ -46,7 +46,7 @@ rule bwa:
     resources:
         mem_mb = 96000
     params:
-        job_name = "{sample}",
+        job_name = "{sample}_bwa",
         ref = config["ref"]["index"]
     shell:
         """
@@ -63,7 +63,7 @@ rule samtools_sort:
     resources:
         mem_mb = 96000
     params:
-        job_name = "{sample}_samtools"
+        job_name = "{sample}_samtools_sort"
     shell:
         """
         samtools sort -@ {threads} -O BAM -o {output.bam} {input}
@@ -81,7 +81,7 @@ rule minipileup:
     resources:
         mem_mb = 96000
     params:
-        job_name = "minipileup"
+        job_name = "minipileup_snp"
     shell:
         """
         /share/org/YZWL/yzwl_wangzw/mingyan/biotools/minipileup-master/minipileup -f {input.ref} \
